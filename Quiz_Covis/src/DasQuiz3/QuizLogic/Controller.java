@@ -27,23 +27,16 @@ public class Controller {
             case START:// sachen liste übergeben
                 for (QuizItem quizItem : quizItems) {
                     console.printQuestionAndAnswers(quizItem);
-                    checkAnswers(quizItem, console.rangeOfInput(1,4));
+                    sumAnswers(quizItem, console.rangeOfInput(1,4));
                 }
                 console.printFinalScores(rightAnswers, wrongAnswers);
-//                console.printQuestionAndAnswers(data.Nr1);
-//                checkAnswers(data.Nr1, console.rangeOfInput(1, 4));
-//                console.printQuestionAndAnswers(data.Nr2);
-//                checkAnswers(data.Nr2, console.rangeOfInput(1, 4));
-//                console.printQuestionAndAnswers(data.Nr3);
-//                checkAnswers(data.Nr3, console.rangeOfInput(1, 4));
-//                console.printFinalScores(rightAnswers, wrongAnswers);
                break;
             case EXIT:
                 System.exit(0);
         }
     }//creational patterns design patterns
-    private void checkAnswers(QuizItem Nr, int Eingabe) {
-        if ( Nr.answers.get(Eingabe-1) instanceof RightAnswer) {
+    private void sumAnswers(QuizItem Nr, int Eingabe) {
+        if ( Nr.checkAnswers(Eingabe)) {
             //instance of
             console.print("Die Antwort ist richtig");
             rightAnswers++;

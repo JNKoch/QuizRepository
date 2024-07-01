@@ -7,5 +7,6 @@ public class Main {
         Controller controller = new Controller();
         controller.start();
         System.out.println("The Second Commit");
+        System.out.println("klappt das mit zwei branches");
     }
 }

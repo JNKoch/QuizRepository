@@ -12,5 +12,10 @@ public class QuizItem {
         this.answers = answers;
         this.positionRightAnswer = positionRightAnswer;
     }
-
+    public boolean checkAnswers(int Eingabe) {
+        int changeListNumberBy = 1;
+        boolean checkAnswer;
+        checkAnswer = answers.get(Eingabe - changeListNumberBy) instanceof RightAnswer;
+        return checkAnswer;
+    }
 }
