@@ -37,7 +37,6 @@ public class Controller {
     }//creational patterns design patterns
     private void sumAnswers(QuizItem Nr, int Eingabe) {
         if ( Nr.checkAnswers(Eingabe)) {
-            //instance of
             console.print("Die Antwort ist richtig");
             rightAnswers++;
         }  else {
