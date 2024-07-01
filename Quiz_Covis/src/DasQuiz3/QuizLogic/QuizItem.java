@@ -13,9 +13,9 @@ public class QuizItem {
         this.positionRightAnswer = positionRightAnswer;
     }
     public boolean checkAnswers(int Eingabe) {
-        int listStartsAtZero = 1;
+        int changeListNumberBy = 1;
         boolean checkAnswer;
-        checkAnswer = answers.get(Eingabe - listStartsAtZero) instanceof RightAnswer;
+        checkAnswer = answers.get(Eingabe - changeListNumberBy) instanceof RightAnswer;
         return checkAnswer;
     }
 }
