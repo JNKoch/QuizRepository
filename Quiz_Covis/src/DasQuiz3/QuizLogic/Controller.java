@@ -30,13 +30,6 @@ public class Controller {
                     sumAnswers(quizItem, console.rangeOfInput(1,4));
                 }
                 console.printFinalScores(rightAnswers, wrongAnswers);
-//                console.printQuestionAndAnswers(data.Nr1);
-//                checkAnswers(data.Nr1, console.rangeOfInput(1, 4));
-//                console.printQuestionAndAnswers(data.Nr2);
-//                checkAnswers(data.Nr2, console.rangeOfInput(1, 4));
-//                console.printQuestionAndAnswers(data.Nr3);
-//                checkAnswers(data.Nr3, console.rangeOfInput(1, 4));
-//                console.printFinalScores(rightAnswers, wrongAnswers);
                break;
             case EXIT:
                 System.exit(0);
