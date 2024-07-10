@@ -5,12 +5,11 @@ import java.util.ArrayList;
 public class QuizItem {
     public String question;
     public ArrayList<Answer> answers;
-    public int positionRightAnswer;
 
-    public QuizItem(String question, ArrayList<Answer> answers, int positionRightAnswer) {
+
+    public QuizItem(String question, ArrayList<Answer> answers) {
         this.question = question;
         this.answers = answers;
-        this.positionRightAnswer = positionRightAnswer;
     }
     public boolean checkAnswers(int input) {
         int changeListNumberBy = 1;

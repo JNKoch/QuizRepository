@@ -28,7 +28,7 @@ public class Data {
 
         Answers1.add(new WrongAnswer("27"));
         Answers1.add(new WrongAnswer("20"));
-        QuizItem Nr1 = new QuizItem(question1, Answers1, 1);
+        QuizItem Nr1 = new QuizItem(question1, Answers1);
         quizItems.add(Nr1);
         ArrayList<Answer> Answers2 = new ArrayList<>();
         String question2 = "Wie viel ist 12*12";
@@ -36,7 +36,7 @@ public class Data {
         Answers2.add(new WrongAnswer("122"));
         Answers2.add(new WrongAnswer("112"));
         Answers2.add(new RightAnswer("144"));
-        QuizItem Nr2 = new QuizItem(question2 ,Answers2, 4);
+        QuizItem Nr2 = new QuizItem(question2 ,Answers2);
         quizItems.add(Nr2);
         ArrayList<Answer> Answers3 = new ArrayList<>();
         String question3 = "Wie viel it 9*9";
@@ -44,7 +44,7 @@ public class Data {
         Answers3.add(new RightAnswer("81"));
         Answers3.add(new WrongAnswer("72"));
         Answers3.add(new WrongAnswer("90"));
-        QuizItem Nr3 = new QuizItem(question3 ,Answers3, 2);
+        QuizItem Nr3 = new QuizItem(question3 ,Answers3);
         quizItems.add(Nr3);
         ArrayList<Answer> Answers4 = new ArrayList<>();
         String question4 = "Wie viel it 9*9";
@@ -55,7 +55,7 @@ public class Data {
         Answers4.add(new WrongAnswer("72"));
         Answers4.add(new WrongAnswer("72"));
         Answers4.add(new WrongAnswer("90"));
-        QuizItem Nr4 = new QuizItem(question4 ,Answers4, 2);
+        QuizItem Nr4 = new QuizItem(question4 ,Answers4);
         quizItems.add(Nr4);
         return quizItems;
     }

@@ -1,6 +1,6 @@
 package DasQuiz3.QuizLogic;
 
-public class WrongAnswer extends Answer {
+public class WrongAnswer implements Answer {
     String wrongAnswer;
 
     public WrongAnswer() {

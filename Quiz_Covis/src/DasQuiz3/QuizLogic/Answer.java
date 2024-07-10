@@ -1,8 +1,8 @@
 package DasQuiz3.QuizLogic;
 
-public abstract class Answer {
+public interface Answer {
 
-        public abstract String getAnswer();
+        String getAnswer();
 
-        public abstract void inputAnswer(String answer);
+        void inputAnswer(String answer);
 }
