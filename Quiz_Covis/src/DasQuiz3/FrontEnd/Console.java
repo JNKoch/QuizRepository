@@ -11,11 +11,12 @@ public class Console {
 
     public Console() {
     }
-    public int rangeOfInput(int min, int max) {
+    public int rangeOfInput(int max) {
+        int minInput = 1;
         int input = inputWithScanner();
         int check = 0;
         do {
-            if (input < min || input > max) {
+            if (input < minInput || input > max) {
                 Ausgabe("Falsche Eingabe nochmal eingeben");
                 input = inputWithScanner();
             } else check = 1;
@@ -55,7 +56,7 @@ public class Console {
                 (2) Das Quiz beenden""");
     }
 
-    public void printQuestionAndAnswers(QuizItem Nr) {
+    public void printQuizItem(QuizItem Nr) {
         System.out.println("-------------------------------");
         System.out.println(Nr.question);
         for (int i = 0; i < Nr.answers.size(); i++) {
