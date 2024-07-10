@@ -1,9 +1,6 @@
 package DasQuiz3.Data;
 
-import DasQuiz3.QuizLogic.Answer;
-import DasQuiz3.QuizLogic.QuizItem;
-import DasQuiz3.QuizLogic.RightAnswer;
-import DasQuiz3.QuizLogic.WrongAnswer;
+import DasQuiz3.QuizLogic.*;
 
 import java.util.ArrayList;
 
@@ -15,11 +12,20 @@ public class Data {
     public ArrayList<QuizItem> generateQuestionAndAnswer() {
 
         ArrayList<QuizItem> quizItems = new ArrayList<>();
-        // Erster Spot für frage dann egal wie viel Antworten das ändern
+        AnswerFactory rightAnswerFactory = new CreatorRightAnswer();
+        AnswerFactory wrongAnswerFactory = new CreatorWrongAnswer();
+
         ArrayList<Answer> Answers1 = new ArrayList<>();
         String question1 = "Wie viel ist 5*5";
-        Answers1.add(new RightAnswer("25"));
-        Answers1.add(new WrongAnswer("23"));
+
+        Answer answer1 = rightAnswerFactory.createAnswer();
+        answer1.inputAnswer("25");
+        Answers1.add(answer1);
+
+        Answer answer2 = wrongAnswerFactory.createAnswer();
+        answer2.inputAnswer("23");
+        Answers1.add(answer2);
+
         Answers1.add(new WrongAnswer("27"));
         Answers1.add(new WrongAnswer("20"));
         QuizItem Nr1 = new QuizItem(question1, Answers1, 1);
@@ -40,6 +46,17 @@ public class Data {
         Answers3.add(new WrongAnswer("90"));
         QuizItem Nr3 = new QuizItem(question3 ,Answers3, 2);
         quizItems.add(Nr3);
+        ArrayList<Answer> Answers4 = new ArrayList<>();
+        String question4 = "Wie viel it 9*9";
+        Answers4.add(new WrongAnswer("99"));
+        Answers4.add(new RightAnswer("81"));
+        Answers4.add(new WrongAnswer("72"));
+        Answers4.add(new WrongAnswer("72"));
+        Answers4.add(new WrongAnswer("72"));
+        Answers4.add(new WrongAnswer("72"));
+        Answers4.add(new WrongAnswer("90"));
+        QuizItem Nr4 = new QuizItem(question4 ,Answers4, 2);
+        quizItems.add(Nr4);
         return quizItems;
     }
 }

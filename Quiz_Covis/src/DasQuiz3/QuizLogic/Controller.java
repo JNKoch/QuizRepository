@@ -23,21 +23,20 @@ public class Controller {
     public void start() {
         ArrayList<QuizItem> quizItems = data.generateQuestionAndAnswer();
         console.menu();
-        switch (console.rangeOfInput(1,2)) {
+        switch (console.rangeOfInput(2)) {
             case START:// sachen liste übergeben
                 for (QuizItem quizItem : quizItems) {
-                    console.printQuestionAndAnswers(quizItem);
-                    sumAnswers(quizItem, console.rangeOfInput(1,4));
+                    console.printQuizItem(quizItem);
+                    sumAnswers(quizItem, console.rangeOfInput(quizItem.answers.size()));
                 }
                 console.printFinalScores(rightAnswers, wrongAnswers);
                break;
             case EXIT:
                 System.exit(0);
         }
-    }//creational patterns design patterns
+    }//creational patterns design patterns structure behavior
     private void sumAnswers(QuizItem Nr, int Eingabe) {
         if ( Nr.checkAnswers(Eingabe)) {
-            //instance of
             console.print("Die Antwort ist richtig");
             rightAnswers++;
         }  else {
