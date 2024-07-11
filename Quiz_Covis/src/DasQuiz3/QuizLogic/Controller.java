@@ -2,6 +2,7 @@ package DasQuiz3.QuizLogic;
 
 import DasQuiz3.Data.Data;
 import DasQuiz3.FrontEnd.Console;
+import DasQuiz3.QuizLogic.QuizItemPackage.QuizItem;
 
 import java.util.ArrayList;
 
@@ -26,8 +27,8 @@ public class Controller {
         switch (console.rangeOfInput(2)) {
             case START:// sachen liste übergeben
                 for (QuizItem quizItem : quizItems) {
-                    console.printQuizItem(quizItem);
-                    sumAnswers(quizItem, console.rangeOfInput(quizItem.answers.size()));
+                    quizItem.printQuizItems();
+                    sumAnswers(quizItem, console.rangeOfInput(quizItem.returnAnswersSize()));
                 }
                 console.printFinalScores(rightAnswers, wrongAnswers);
                break;
@@ -35,8 +36,8 @@ public class Controller {
                 System.exit(0);
         }
     }//creational patterns design patterns structure behavior
-    private void sumAnswers(QuizItem Nr, int Eingabe) {
-        if ( Nr.checkAnswers(Eingabe)) {
+    private void sumAnswers(QuizItem quizItem, int Eingabe) {
+        if ( quizItem.checkAnswers(Eingabe)) {
             console.print("Die Antwort ist richtig");
             rightAnswers++;
         }  else {
