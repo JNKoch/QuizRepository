@@ -1,7 +1,5 @@
 package DasQuiz3.FrontEnd;
 
-import DasQuiz3.QuizLogic.QuizItem;
-
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -56,14 +54,6 @@ public class Console {
                 (2) Das Quiz beenden""");
     }
 
-    public void printQuizItem(QuizItem Nr) {
-        System.out.println("-------------------------------");
-        System.out.println(Nr.question);
-        for (int i = 0; i < Nr.answers.size(); i++) {
-            System.out.println("("+(i+1)+") "+Nr.answers.get(i).getAnswer());
-        }
-        System.out.println("-------------------------------");
-    }
 
     public void printFinalScores(int rightAnswers, int wrongAnswers) {
 

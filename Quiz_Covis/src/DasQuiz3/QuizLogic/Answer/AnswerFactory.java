@@ -1,4 +1,4 @@
-package DasQuiz3.QuizLogic;
+package DasQuiz3.QuizLogic.Answer;
 
 public abstract class AnswerFactory {
 

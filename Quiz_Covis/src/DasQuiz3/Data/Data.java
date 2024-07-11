@@ -1,6 +1,10 @@
 package DasQuiz3.Data;
 
-import DasQuiz3.QuizLogic.*;
+import DasQuiz3.QuizLogic.Answer.*;
+import DasQuiz3.QuizLogic.QuizItemPackage.CreatorQuizItemInteger;
+import DasQuiz3.QuizLogic.QuizItemPackage.CreatorQuizItemString;
+import DasQuiz3.QuizLogic.QuizItemPackage.QuizItem;
+import DasQuiz3.QuizLogic.QuizItemPackage.QuizItemFactory;
 
 import java.util.ArrayList;
 
@@ -14,49 +18,23 @@ public class Data {
         ArrayList<QuizItem> quizItems = new ArrayList<>();
         AnswerFactory rightAnswerFactory = new CreatorRightAnswer();
         AnswerFactory wrongAnswerFactory = new CreatorWrongAnswer();
+        QuizItemFactory integerQuizItemFactory = new CreatorQuizItemInteger();
+        QuizItemFactory stringQuizItemFactory = new CreatorQuizItemString();
 
         ArrayList<Answer> Answers1 = new ArrayList<>();
         String question1 = "Wie viel ist 5*5";
 
         Answer answer1 = rightAnswerFactory.createAnswer();
-        answer1.inputAnswer("25");
+        answer1.inputAnswerInt(25);
         Answers1.add(answer1);
 
         Answer answer2 = wrongAnswerFactory.createAnswer();
-        answer2.inputAnswer("23");
+        answer2.inputAnswerInt(23);
         Answers1.add(answer2);
 
-        Answers1.add(new WrongAnswer("27"));
-        Answers1.add(new WrongAnswer("20"));
-        QuizItem Nr1 = new QuizItem(question1, Answers1, 1);
-        quizItems.add(Nr1);
-        ArrayList<Answer> Answers2 = new ArrayList<>();
-        String question2 = "Wie viel ist 12*12";
-        Answers2.add(new WrongAnswer("134"));
-        Answers2.add(new WrongAnswer("122"));
-        Answers2.add(new WrongAnswer("112"));
-        Answers2.add(new RightAnswer("144"));
-        QuizItem Nr2 = new QuizItem(question2 ,Answers2, 4);
-        quizItems.add(Nr2);
-        ArrayList<Answer> Answers3 = new ArrayList<>();
-        String question3 = "Wie viel it 9*9";
-        Answers3.add(new WrongAnswer("99"));
-        Answers3.add(new RightAnswer("81"));
-        Answers3.add(new WrongAnswer("72"));
-        Answers3.add(new WrongAnswer("90"));
-        QuizItem Nr3 = new QuizItem(question3 ,Answers3, 2);
-        quizItems.add(Nr3);
-        ArrayList<Answer> Answers4 = new ArrayList<>();
-        String question4 = "Wie viel it 9*9";
-        Answers4.add(new WrongAnswer("99"));
-        Answers4.add(new RightAnswer("81"));
-        Answers4.add(new WrongAnswer("72"));
-        Answers4.add(new WrongAnswer("72"));
-        Answers4.add(new WrongAnswer("72"));
-        Answers4.add(new WrongAnswer("72"));
-        Answers4.add(new WrongAnswer("90"));
-        QuizItem Nr4 = new QuizItem(question4 ,Answers4, 2);
-        quizItems.add(Nr4);
+        quizItems.add(integerQuizItemFactory.createQuizItem(question1, Answers1));
+
+
         return quizItems;
     }
 }
