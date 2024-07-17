@@ -1,28 +1,29 @@
 package DasQuiz4.QuizLogic.Answer;
 
-public class WrongAnswer implements Answer{
-    String wrongAnswer;
-    int wrongAnswerInt;
-    public WrongAnswer() {
+public class RightAnswer implements Answer {
+    String rightAnswer;
+    int rightAnswerInt;
+
+    public RightAnswer() {
     }
 
 
     public String getAnswer() {
-        return wrongAnswer;
+        return rightAnswer;
     }
 
     @Override
     public int getAnswerInt() {
-        return wrongAnswerInt;
+        return rightAnswerInt;
     }
 
     @Override
     public void inputAnswer(String answer) {
-        this.wrongAnswer = answer;
+        this.rightAnswer = answer;
     }
 
     @Override
     public void inputAnswerInt(int answer) {
-        this.wrongAnswerInt = answer;
+        this.rightAnswerInt = answer;
     }
 }
