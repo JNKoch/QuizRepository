@@ -27,8 +27,6 @@ public class Main {
 
             lines = fileRepository.readAllLines();
             lines.forEach(System.out::println);
-
-
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
