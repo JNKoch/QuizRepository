@@ -5,9 +5,8 @@ public class WrongAnswer implements Answer{
     int wrongAnswerInt;
     public WrongAnswer() {
     }
-    public WrongAnswer(String answer) {
-        this.wrongAnswer = answer;
-    }
+
+
     public String getAnswer() {
         return wrongAnswer;
     }
