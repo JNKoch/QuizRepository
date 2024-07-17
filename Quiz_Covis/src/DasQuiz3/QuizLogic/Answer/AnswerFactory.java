@@ -1,6 +1,12 @@
 package DasQuiz3.QuizLogic.Answer;
 
-public abstract class AnswerFactory {
+public class AnswerFactory {
 
-    public abstract Answer createAnswer();
+    public Answer createRightAnswer() {
+        return new RightAnswer();
+    }
+    public Answer createWrongAnswer() {
+        return new WrongAnswer();
+    }
+
 }
