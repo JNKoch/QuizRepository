@@ -4,12 +4,15 @@ import DasQuiz4.QuizLogic.Answer.*;
 import DasQuiz4.QuizLogic.QuizItemPackage.QuizItem;
 import DasQuiz4.QuizLogic.QuizItemPackage.QuizItemFactory;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Data {
 
     public Data() {
     }
+
     //methode rückgabe
     public ArrayList<QuizItem> generateQuestionAndAnswer() {
 /*
@@ -47,6 +50,45 @@ public class Data {
 
         quizItems.add(quizItemFactory.createQuizItemString(question2, Answers2));
 
+        return quizItems;
+    }
+
+    public ArrayList<QuizItem> getQAndAFromFile() throws IOException {
+        final String DELIMITER = ";";
+        final String RIGHT_ANSWER = "*";
+        String[] data;
+        String question;
+        String line;
+
+        ArrayList<QuizItem> quizItems = new ArrayList<>();
+        FileRepository fileRepository = new TextFileRepository("Quiz_Covis/src/DasQuiz4/Data.txt");
+        AnswerFactory answerFactory = new AnswerFactory();
+        QuizItemFactory quizItemFactory = new QuizItemFactory();
+
+        //fileRepository.create("Wer steht im Finale;Deutschland;Spanien*;");
+        List<String> lines = fileRepository.readAllLines();
+
+        for (int i = 0; i < lines.size(); i++) {
+            ArrayList<Answer> Answers = new ArrayList<>();
+            line = fileRepository.readLine(i);
+            data = line.split(DELIMITER);
+            question = data[0].trim();
+            System.out.println(data.length);
+            for (int j = 1; j <= 2; j++) {
+                String textAnswer = data[j].trim();
+                if (textAnswer.endsWith(RIGHT_ANSWER)) {
+                    Answer answer = answerFactory.createRightAnswer();
+                    answer.inputAnswer(textAnswer.substring(0, textAnswer.length() - 1));
+                    Answers.add(answer);
+                } else {
+                    Answer answer = answerFactory.createWrongAnswer();
+                    answer.inputAnswer(textAnswer);
+                    Answers.add(answer);
+                }
+
+            }
+            quizItems.add(quizItemFactory.createQuizItemString(question, Answers));
+        }
         return quizItems;
     }
 }
