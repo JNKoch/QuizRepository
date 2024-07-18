@@ -4,6 +4,7 @@ import DasQuiz4.Data.Data;
 import DasQuiz4.FrontEnd.Console;
 import DasQuiz4.QuizLogic.QuizItemPackage.QuizItem;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Controller {
@@ -21,8 +22,8 @@ public class Controller {
         console = new Console();
     }
 
-    public void start() {
-        ArrayList<QuizItem> quizItems = data.generateQuestionAndAnswer();
+    public void start() throws IOException {
+        ArrayList<QuizItem> quizItems = data.getQAndAFromFile();
         console.menu();
         switch (console.rangeOfInput(2)) {
             case START:// sachen liste übergeben
